@@ -1,2 +1,2 @@
 # netflixclone-handson
-netflix clone hands-on practice
+Cloning Netflix's Front Page with VanillaJS, Flexbox Grid and Webpack

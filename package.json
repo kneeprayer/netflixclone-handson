@@ -1,0 +1,28 @@
+{
+  "name": "netflixclone-handson",
+  "version": "1.0.0",
+  "description": "This app is for netflix clone hands-on practice.",
+  "main": "./src/index.js",
+  "repository": "https://github.com/kneeprayer/netflixclone-handson.git",
+  "author": "SeungHoon Lee <kneeprayer@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_PATH=src node ./src/index.js",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "cross-env": "^5.1.6",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.0",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5"
+  }
+}
