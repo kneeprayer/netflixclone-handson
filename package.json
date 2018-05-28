@@ -11,7 +11,7 @@
     "start": "webpack-dev-server --mode development --config webpack/webpack.common.js",
     "build": "webpack --mode production --config webpack/webpack.common.js",
     "deploy": "gh-pages -d dist",
-    "predeply": "yarn build"
+    "predeploy": "yarn build"
   },
   "dependencies": {
     "cross-env": "^5.1.6",
