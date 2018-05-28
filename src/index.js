@@ -158,7 +158,7 @@ const handleVolume = event => {
 };
 
 const handleOpenSearch = event => {
-  console.log(event.target);
+  // console.log(event.target);
   opensearch.style.display = "none";
   search.style.display = "inherit";
   const searchForm = document.querySelector(".js-search-form");
@@ -166,7 +166,7 @@ const handleOpenSearch = event => {
 };
 
 const handleCloseSearch = event => {
-  console.log(event.target);
+  // console.log(event.target);
   search.style.display = "none";
   opensearch.style.display = "inherit";
 };
