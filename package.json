@@ -1,6 +1,6 @@
 {
   "name": "netflixclone-handson",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "description": "This app is for netflix clone hands-on practice.",
   "main": "./src/index.js",
   "repository": "https://github.com/kneeprayer/netflixclone-handson.git",
