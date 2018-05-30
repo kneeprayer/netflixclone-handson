@@ -1,4 +1,6 @@
 import "./styles.css";
+// import "./fontawesome-all.min.css";
+
 const app = document.getElementById("app");
 var alarmcount = 1;
 app.innerHTML =
@@ -49,11 +51,17 @@ app.innerHTML =
   <div class="video">
     <video id="homevideo" class="js-video" src="https://ia800602.us.archive.org/4/items/mov-bbb/mov_bbb.mp4">
     </video>
+    <div class="js-videoController">
+      <div class="js-playBtn">
+          <i class="fa fa-play"></i>
+      </div>
+    </div>
+    <div class="js-volumeController">
+      <div class="js-volumeBtn">
+        <i class="fas fa-volume-off"></i>
+      </div>
+    </div>
   </div>
-  <button class="js-muteBtn">Mute</button>
-  <button class="js-playBtn">Play</button>
-  <input class="js-volumeRange" type="range" min="0" max="1" step="0.1">
-
   <div class="movie-info">
     <div class="movie-info__box">1</div>
     <div class="movie-info__box">2</div>
@@ -65,9 +73,8 @@ app.innerHTML =
 
 const header = document.querySelector(".js-header"),
   video = document.getElementById("homevideo"),
-  muteBtn = document.querySelector(".js-muteBtn"),
+  volume = document.querySelector(".js-volumeBtn"),
   playBtn = document.querySelector(".js-playBtn"),
-  volumeRange = document.querySelector(".js-volumeRange"),
   search = document.querySelector(".js-search-form"),
   opensearch = document.querySelector(".js-header__others-opensearch"),
   closesearch = document.querySelector(".js-header__others-closesearch"),
@@ -78,26 +85,24 @@ const header = document.querySelector(".js-header"),
 
 const loadSettings = () => {
   const loadMute = localStorage.getItem("muted");
-  volumeRange.value = video.volume;
   // Returned loadMute is not a boolean, it is a string!!
   if (loadMute === "true") {
     video.muted = true;
-    volumeRange.value = 0;
-    muteBtn.innerHTML = "Unmute";
+    volume.innerHTML = `<i class="fas fa-volume-up"></i>`;
   } else {
     video.muted = false;
-    muteBtn.innerHTML = "mute";
+    volume.innerHTML = `<i class="fas fa-volume-off"></i>`;
   }
   video.play();
   video.onplay = () => {
-    playBtn.innerHTML = "Pause";
+    playBtn.innerHTML = `<i class="fa fa-pause"></i>`;
   };
   search.style.display = "none";
   opensearch.style.display = "inherit";
 };
 
 video.onended = () => {
-  playBtn.innerHTML = "Play";
+  playBtn.innerHTML = `<i class="fa fa-play"></i>`;
 };
 
 const handleScroll = event => {
@@ -111,11 +116,11 @@ const handleScroll = event => {
 
   if (scrollHeight > 300) {
     video.pause();
-    playBtn.innerHTML = "Play";
+    playBtn.innerHTML = `<i class="fa fa-play"></i>`;
   } else {
     video.play();
     video.onplay = () => {
-      playBtn.innerHTML = "Pause";
+      playBtn.innerHTML = `<i class="fa fa-pause"></i>`;
     };
   }
 };
@@ -125,15 +130,12 @@ const handleMute = () => {
   if (isMute) {
     // If is muted, change it to unmuted
     video.muted = false;
-    muteBtn.innerHTML = "mute";
-    volumeRange.value = video.volume;
+    volume.innerHTML = `<i class="fas fa-volume-off"></i>`;
     localStorage.setItem("muted", false);
   } else {
     // If is not muted, change it to muted
-
     video.muted = true;
-    muteBtn.innerHTML = "Unmute";
-    volumeRange.value = 0;
+    volume.innerHTML = `<i class="fas fa-volume-up"></i>`;
     localStorage.setItem("muted", true);
   }
 };
@@ -144,11 +146,11 @@ const handlePlay = () => {
   if (isPaused) {
     // Play the video, and change the play button text to pause
     video.play();
-    playBtn.innerHTML = "Pause";
+    playBtn.innerHTML = `<i class="fa fa-pause"></i>`;
   } else {
     // Pause the video, and change the pause button text to play
     video.pause();
-    playBtn.innerHTML = "Play";
+    playBtn.innerHTML = `<i class="fa fa-play"></i>`;
   }
 };
 
@@ -208,9 +210,8 @@ const handleAlarmCount = event => {
 };
 
 loadSettings();
-muteBtn.addEventListener("click", handleMute);
+volume.addEventListener("click", handleMute);
 playBtn.addEventListener("click", handlePlay);
-volumeRange.addEventListener("change", handleVolume);
 opensearch.addEventListener("mouseover", handleOpenSearch);
 closesearch.addEventListener("click", handleCloseSearch);
 alarm.addEventListener("click", handleAlarmCount);
