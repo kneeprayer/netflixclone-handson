@@ -141,10 +141,10 @@ const loadSettings = () => {
   // Returned loadMute is not a boolean, it is a string!!
   if (loadMute === "true") {
     video.muted = true;
-    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
   } else {
     video.muted = false;
-    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
   }
   video.play();
   video.onplay = () => {
@@ -182,12 +182,12 @@ const handleMute = () => {
   if (isMute) {
     // If is muted, change it to unmuted
     video.muted = false;
-    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
     localStorage.setItem("muted", false);
   } else {
     // If is not muted, change it to muted
     video.muted = true;
-    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
     localStorage.setItem("muted", true);
   }
 };
@@ -269,26 +269,39 @@ const handleInvisiblePlayBtn = event => {
 
 const handleVideoPlayer = event => {
   if (fullScreen == false) {
-    videowindow.classList.add("fullscreen");
-    body.style.overflowY = "hidden";
+    // videowindow.classList.add("fullscreen");
+    // body.style.overflowY = "hidden";
+    video.webkitRequestFullscreen();
+    video.muted = false;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
+    localStorage.setItem("muted", false);
     fullScreen = true;
   } else {
-    videowindow.classList.remove("fullscreen");
-    body.style.overflowY = "inherit";
+    // videowindow.classList.remove("fullscreen");
+    // body.style.overflowY = "inherit";
+    video.webkitExitFullscreen();
+    video.muted = true;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
+    localStorage.setItem("muted", true);
     fullScreen = false;
   }
 };
 
 const handleScollVideoPlayer = event => {
   if (fullScreen == true) {
-    videowindow.classList.remove("fullscreen");
-    body.style.overflowY = "inherit";
+    // videowindow.classList.remove("fullscreen");
+    // body.style.overflowY = "inherit";
+    video.webkitExitFullscreen();
+    video.muted = true;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
+    localStorage.setItem("muted", true);
     fullScreen = false;
   }
 };
 
 const handleoViewVideoPlayer = event => {
   if (viewVideoPlayer == false) {
+    video.muted = true;
     movieplayer.play();
     movieplayer.webkitRequestFullscreen();
     viewVideoPlayer = true;
@@ -303,6 +316,7 @@ const handleoCloseVideoPlayer = event => {
 
 loadSettings();
 videoplayer.addEventListener("click", handleoCloseVideoPlayer);
+videoplayer.addEventListener("wheel", handleoCloseVideoPlayer);
 videowindow.addEventListener("mouseover", handleVisiblePlayBtn);
 videowindow.addEventListener("mouseleave", handleInvisiblePlayBtn);
 video.addEventListener("click", handleVideoPlayer);
