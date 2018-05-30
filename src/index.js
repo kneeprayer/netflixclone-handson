@@ -63,29 +63,29 @@ app.innerHTML =
     </div>
   </div>
   <div class="recommand-movies">
-    <p>Nomflix Best movies</p>
+    <p>Nomflix original movies</p>
     <div class="movie-info">
-      <div class="movie-info__box">1</div>
-      <div class="movie-info__box">2</div>
-      <div class="movie-info__box">3</div>
-      <div class="movie-info__box">4</div>
-      <div class="movie-info__box">5</div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
     </div>
     <p>Best movies</p>
     <div class="movie-info">
-      <div class="movie-info__box">1</div>
-      <div class="movie-info__box">2</div>
-      <div class="movie-info__box">3</div>
-      <div class="movie-info__box">4</div>
-      <div class="movie-info__box">5</div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
     </div>
-    <p>Hot SF movies</p>
+    <p>Hot Kids Animation</p>
     <div class="movie-info">
-      <div class="movie-info__box">1</div>
-      <div class="movie-info__box">2</div>
-      <div class="movie-info__box">3</div>
-      <div class="movie-info__box">4</div>
-      <div class="movie-info__box">5</div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
     </div>
   </div>
   <footer>

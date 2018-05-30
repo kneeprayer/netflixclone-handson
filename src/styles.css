@@ -197,9 +197,12 @@ body {
 }
 
 .movie-info__box {
-  background-color: white;
   transition: transform 0.2s ease-out;
-  height: 300px;
+  width: 19vw;
+}
+
+.movie-info__box img {
+  width: 100%;
 }
 
 .movie-info__box:hover {
@@ -216,6 +219,7 @@ body {
 
 .footer-info {
   margin-top: 100px;
+  margin-bottom: 100px;
   width: 99vw;
   color: #999;
 }
