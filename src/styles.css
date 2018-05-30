@@ -52,7 +52,6 @@ body {
 }
 
 .js-header__others {
-  /* border: 1px solid white; */
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -126,11 +125,11 @@ body {
 }
 
 .js-videoController {
-  display: flex;
+  display: block;
   flex-direction: column;
-  position: relative;
-  bottom: 500px;
-  left: 49%;
+  position: absolute;
+  top: 49vh;
+  left: 49vw;
 }
 
 .js-playBtn {
@@ -146,19 +145,20 @@ body {
   margin-bottom: 10px;
   opacity: 0.7;
   font-size: 50px;
+  transition: transform 2s ease-out;
 }
 
 .js-volumeController {
   display: flex;
-  position: relative;
+  position: absolute;
   width: 20%;
-  bottom: 200px;
-  left: 95%;
+  bottom: 10vh;
+  left: 95vw;
 }
 
 .js-volumeBtn {
-  border: 5px solid #e8e8e8;
   display: flex;
+  border: 5px solid #e8e8e8;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -169,6 +169,7 @@ body {
   width: 50px;
   opacity: 0.7;
   font-size: 25px;
+  transition: transform 2s ease-out;
 }
 
 .movie-info {

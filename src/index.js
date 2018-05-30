@@ -73,7 +73,8 @@ app.innerHTML =
 
 const header = document.querySelector(".js-header"),
   video = document.getElementById("homevideo"),
-  volume = document.querySelector(".js-volumeBtn"),
+  videowindow = document.querySelector(".video"),
+  volumeBtn = document.querySelector(".js-volumeBtn"),
   playBtn = document.querySelector(".js-playBtn"),
   search = document.querySelector(".js-search-form"),
   opensearch = document.querySelector(".js-header__others-opensearch"),
@@ -83,15 +84,17 @@ const header = document.querySelector(".js-header"),
   boxes = document.querySelectorAll(".movie-info__box"),
   boxArray = Array.from(boxes);
 
+var fullScreen = false;
+
 const loadSettings = () => {
   const loadMute = localStorage.getItem("muted");
   // Returned loadMute is not a boolean, it is a string!!
   if (loadMute === "true") {
     video.muted = true;
-    volume.innerHTML = `<i class="fas fa-volume-up"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
   } else {
     video.muted = false;
-    volume.innerHTML = `<i class="fas fa-volume-off"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
   }
   video.play();
   video.onplay = () => {
@@ -107,7 +110,6 @@ video.onended = () => {
 
 const handleScroll = event => {
   const scrollHeight = window.scrollY;
-  console.log(scrollHeight);
   if (scrollHeight > 20) {
     header.classList.add("black");
   } else {
@@ -130,12 +132,12 @@ const handleMute = () => {
   if (isMute) {
     // If is muted, change it to unmuted
     video.muted = false;
-    volume.innerHTML = `<i class="fas fa-volume-off"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
     localStorage.setItem("muted", false);
   } else {
     // If is not muted, change it to muted
     video.muted = true;
-    volume.innerHTML = `<i class="fas fa-volume-up"></i>`;
+    volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
     localStorage.setItem("muted", true);
   }
 };
@@ -156,11 +158,9 @@ const handlePlay = () => {
 
 const handleVolume = event => {
   video.volume = event.target.value;
-  // console.log(event.target.value);
 };
 
 const handleOpenSearch = event => {
-  // console.log(event.target);
   opensearch.style.display = "none";
   search.style.display = "inherit";
   const searchForm = document.querySelector(".js-search-form");
@@ -168,7 +168,6 @@ const handleOpenSearch = event => {
 };
 
 const handleCloseSearch = event => {
-  // console.log(event.target);
   search.style.display = "none";
   opensearch.style.display = "inherit";
 };
@@ -209,8 +208,31 @@ const handleAlarmCount = event => {
   alarmnumber.innerHTML = ++alarmcount;
 };
 
+const handleVisiblePlayBtn = event => {
+  playBtn.style.display = "flex";
+  volumeBtn.style.display = "flex";
+};
+
+const handleInvisiblePlayBtn = event => {
+  playBtn.style.display = "none";
+  volumeBtn.style.display = "none";
+};
+
+const handleViewVideoPlayer = event => {
+  if (fullScreen == false) {
+    videowindow.style.position = "absolute";
+    fullScreen = true;
+  } else {
+    videowindow.style.position = "relative";
+    fullScreen = false;
+  }
+};
+
 loadSettings();
-volume.addEventListener("click", handleMute);
+videowindow.addEventListener("mouseover", handleVisiblePlayBtn);
+videowindow.addEventListener("mouseleave", handleInvisiblePlayBtn);
+videowindow.addEventListener("click", handleViewVideoPlayer);
+volumeBtn.addEventListener("click", handleMute);
 playBtn.addEventListener("click", handlePlay);
 opensearch.addEventListener("mouseover", handleOpenSearch);
 closesearch.addEventListener("click", handleCloseSearch);
