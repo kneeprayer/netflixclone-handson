@@ -49,7 +49,7 @@ app.innerHTML =
     </div>
   </header>
   <div class="video">
-    <video id="homevideo" class="js-video" src="https://ia800602.us.archive.org/4/items/mov-bbb/mov_bbb.mp4">
+    <video id="homevideo" class="js-video" src="https://ia800602.us.archive.org/4/items/mov-bbb/mov_bbb.mp4" autoplay>
     </video>
     <div class="js-videoController">
       <div class="js-playBtn">
@@ -111,10 +111,8 @@ app.innerHTML =
     </ul>
   </footer>
   <div class="viewVideoPlayer">
-    <video id="movieplayer" class="js-video" src="http://www.html5videoplayer.net/videos/toystory.mp4">
+    <video id="movieplayer" class="js-video" src="http://www.html5videoplayer.net/videos/toystory.mp4" controls>
     </video>
-    <div class="videoPlayer--controller">
-    </div>
   </div>  
   `;
 
@@ -292,16 +290,14 @@ const handleScollVideoPlayer = event => {
 const handleoViewVideoPlayer = event => {
   if (viewVideoPlayer == false) {
     movieplayer.play();
-    videoplayer.classList.add("viewVideoPlayer--play");
-    body.style.overflow = "none";
+    movieplayer.webkitRequestFullscreen();
     viewVideoPlayer = true;
   }
 };
 
 const handleoCloseVideoPlayer = event => {
   movieplayer.pause();
-  videoplayer.classList.remove("viewVideoPlayer--play");
-  body.style.overflowY = "inherit";
+  movieplayer.webkitExitFullscreen();
   viewVideoPlayer = false;
 };
 
