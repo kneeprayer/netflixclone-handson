@@ -1,9 +1,9 @@
 body {
   padding: 0;
   margin: 0;
-  height: 1000vh;
   background-color: black;
   font-family: "Roboto";
+  overflow-x: hidden;
 }
 
 .js-header {
@@ -33,7 +33,6 @@ body {
 }
 
 .js-header__menus {
-  /* border:1px solid white; */
   display: flex;
   align-items: center;
 }
@@ -116,12 +115,25 @@ body {
 }
 
 .video {
-  /* border: 1px solid white; */
   width: 100%;
 }
 
 .js-video {
   width: 100%;
+}
+
+.fullscreen {
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0;
+  border: 0;
+  left: 0px;
+  top: 0px;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  transition-delay: 2s;
 }
 
 .js-videoController {
@@ -149,7 +161,7 @@ body {
 }
 
 .js-volumeController {
-  display: flex;
+  display: block;
   position: absolute;
   width: 20%;
   bottom: 10vh;
@@ -170,6 +182,11 @@ body {
   opacity: 0.7;
   font-size: 25px;
   transition: transform 2s ease-out;
+}
+
+.recommand-movies {
+  font-size: 25px;
+  color: #e8e8e8;
 }
 
 .movie-info {
@@ -195,4 +212,46 @@ body {
 
 .movie-info__next {
   transform: translateX(10px);
+}
+
+.footer-info {
+  margin-top: 100px;
+  width: 99vw;
+  color: #999;
+}
+
+.footer-info ul {
+  width: 99vw;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-info li {
+  margin-right: 15px;
+  width: 30vw;
+}
+
+.footer-info a {
+  text-decoration: none;
+}
+
+.footer-info a:link {
+  color: #999;
+}
+
+.footer-info a:visited {
+  color: #999;
+}
+
+.footer-info a:hover {
+  color: #999;
+  text-decoration: underline;
+}
+
+.footer-info ul {
+  list-style: none;
 }

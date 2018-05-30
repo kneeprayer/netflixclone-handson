@@ -62,16 +62,58 @@ app.innerHTML =
       </div>
     </div>
   </div>
-  <div class="movie-info">
-    <div class="movie-info__box">1</div>
-    <div class="movie-info__box">2</div>
-    <div class="movie-info__box">3</div>
-    <div class="movie-info__box">4</div>
-    <div class="movie-info__box">5</div>
+  <div class="recommand-movies">
+    <p>Nomflix Best movies</p>
+    <div class="movie-info">
+      <div class="movie-info__box">1</div>
+      <div class="movie-info__box">2</div>
+      <div class="movie-info__box">3</div>
+      <div class="movie-info__box">4</div>
+      <div class="movie-info__box">5</div>
+    </div>
+    <p>Best movies</p>
+    <div class="movie-info">
+      <div class="movie-info__box">1</div>
+      <div class="movie-info__box">2</div>
+      <div class="movie-info__box">3</div>
+      <div class="movie-info__box">4</div>
+      <div class="movie-info__box">5</div>
+    </div>
+    <p>Hot SF movies</p>
+    <div class="movie-info">
+      <div class="movie-info__box">1</div>
+      <div class="movie-info__box">2</div>
+      <div class="movie-info__box">3</div>
+      <div class="movie-info__box">4</div>
+      <div class="movie-info__box">5</div>
+    </div>
   </div>
-`;
+  <footer>
+    <div class="footer-info">
+    <ul>
+      <li><a class="footer-link" href="#"><span id="">FAQ</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Help Center</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Account</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Media Center</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Investor Relations</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Jobs</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Gift Cards</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Ways to Watch</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Terms of Use</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Privacy</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Cookie Preferences</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Corporate Information</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Contact Us</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Act on Specified Commercial Transactions</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Speed Test</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Legal Notices</span></a></li>
+      <li><a class="footer-link" href="#"><span id="">Netflix Originals</span></a></li>
+    </ul>
+  </footer>
+  `;
 
-const header = document.querySelector(".js-header"),
+const body = document.getElementsByTagName("BODY")[0],
+  header = document.querySelector(".js-header"),
   video = document.getElementById("homevideo"),
   videowindow = document.querySelector(".video"),
   volumeBtn = document.querySelector(".js-volumeBtn"),
@@ -88,6 +130,7 @@ var fullScreen = false;
 
 const loadSettings = () => {
   const loadMute = localStorage.getItem("muted");
+  video.loop = true;
   // Returned loadMute is not a boolean, it is a string!!
   if (loadMute === "true") {
     video.muted = true;
@@ -218,12 +261,23 @@ const handleInvisiblePlayBtn = event => {
   volumeBtn.style.display = "none";
 };
 
-const handleViewVideoPlayer = event => {
+const handleVideoPlayer = event => {
   if (fullScreen == false) {
-    videowindow.style.position = "absolute";
+    videowindow.classList.add("fullscreen");
+    body.style.overflowY = "hidden";
     fullScreen = true;
   } else {
-    videowindow.style.position = "relative";
+    videowindow.classList.remove("fullscreen");
+    body.style.overflowY = "inherit";
+    fullScreen = false;
+  }
+};
+
+const handleScollVideoPlayer = event => {
+  console.log("handleScollVideoPlayer");
+  if (fullScreen == true) {
+    videowindow.classList.remove("fullscreen");
+    body.style.overflowY = "inherit";
     fullScreen = false;
   }
 };
@@ -231,14 +285,15 @@ const handleViewVideoPlayer = event => {
 loadSettings();
 videowindow.addEventListener("mouseover", handleVisiblePlayBtn);
 videowindow.addEventListener("mouseleave", handleInvisiblePlayBtn);
-videowindow.addEventListener("click", handleViewVideoPlayer);
+video.addEventListener("click", handleVideoPlayer);
+video.addEventListener("wheel", handleScollVideoPlayer);
 volumeBtn.addEventListener("click", handleMute);
 playBtn.addEventListener("click", handlePlay);
 opensearch.addEventListener("mouseover", handleOpenSearch);
 closesearch.addEventListener("click", handleCloseSearch);
 alarm.addEventListener("click", handleAlarmCount);
 header.addEventListener("mouseleave", handleCloseSearch);
-window.addEventListener("scroll", handleScroll);
+body.addEventListener("scroll", handleScroll);
 boxArray.forEach(box => {
   box.addEventListener("mouseover", handleBoxMouseOver);
   box.addEventListener("mouseleave", handleBoxMouseLeave);
