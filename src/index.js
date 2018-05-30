@@ -1,4 +1,4 @@
-import "./styles.css";
+import style from "./styles.css";
 // import "./fontawesome-all.min.css";
 
 const app = document.getElementById("app");
@@ -67,7 +67,7 @@ app.innerHTML =
     <div class="movie-info">
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
     </div>
@@ -75,7 +75,7 @@ app.innerHTML =
     <div class="movie-info">
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
     </div>
@@ -83,7 +83,7 @@ app.innerHTML =
     <div class="movie-info">
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
+      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
       <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
     </div>
@@ -110,11 +110,18 @@ app.innerHTML =
       <li><a class="footer-link" href="#"><span id="">Netflix Originals</span></a></li>
     </ul>
   </footer>
+  <div class="viewVideoPlayer">
+    <video id="movieplayer" class="js-video" src="http://www.html5videoplayer.net/videos/toystory.mp4">
+    </video>
+    <div class="videoPlayer--controller">
+    </div>
+  </div>  
   `;
 
 const body = document.getElementsByTagName("BODY")[0],
   header = document.querySelector(".js-header"),
   video = document.getElementById("homevideo"),
+  movieplayer = document.getElementById("movieplayer"),
   videowindow = document.querySelector(".video"),
   volumeBtn = document.querySelector(".js-volumeBtn"),
   playBtn = document.querySelector(".js-playBtn"),
@@ -123,10 +130,12 @@ const body = document.getElementsByTagName("BODY")[0],
   closesearch = document.querySelector(".js-header__others-closesearch"),
   alarm = document.querySelector(".js-header__others-alarm"),
   alarmnumber = document.querySelector(".js-header__others-alarm-number"),
+  videoplayer = document.querySelector(".viewVideoPlayer"),
   boxes = document.querySelectorAll(".movie-info__box"),
   boxArray = Array.from(boxes);
 
 var fullScreen = false;
+var viewVideoPlayer = false;
 
 const loadSettings = () => {
   const loadMute = localStorage.getItem("muted");
@@ -187,7 +196,6 @@ const handleMute = () => {
 
 const handlePlay = () => {
   const isPaused = video.paused;
-  // console.log(isPaused);
   if (isPaused) {
     // Play the video, and change the play button text to pause
     video.play();
@@ -274,7 +282,6 @@ const handleVideoPlayer = event => {
 };
 
 const handleScollVideoPlayer = event => {
-  console.log("handleScollVideoPlayer");
   if (fullScreen == true) {
     videowindow.classList.remove("fullscreen");
     body.style.overflowY = "inherit";
@@ -282,7 +289,24 @@ const handleScollVideoPlayer = event => {
   }
 };
 
+const handleoViewVideoPlayer = event => {
+  if (viewVideoPlayer == false) {
+    movieplayer.play();
+    videoplayer.classList.add("viewVideoPlayer--play");
+    body.style.overflow = "none";
+    viewVideoPlayer = true;
+  }
+};
+
+const handleoCloseVideoPlayer = event => {
+  movieplayer.pause();
+  videoplayer.classList.remove("viewVideoPlayer--play");
+  body.style.overflowY = "inherit";
+  viewVideoPlayer = false;
+};
+
 loadSettings();
+videoplayer.addEventListener("click", handleoCloseVideoPlayer);
 videowindow.addEventListener("mouseover", handleVisiblePlayBtn);
 videowindow.addEventListener("mouseleave", handleInvisiblePlayBtn);
 video.addEventListener("click", handleVideoPlayer);
@@ -297,4 +321,5 @@ body.addEventListener("scroll", handleScroll);
 boxArray.forEach(box => {
   box.addEventListener("mouseover", handleBoxMouseOver);
   box.addEventListener("mouseleave", handleBoxMouseLeave);
+  box.addEventListener("click", handleoViewVideoPlayer);
 });
