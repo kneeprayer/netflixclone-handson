@@ -6,7 +6,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.p?css$/,
         use: [
           {
             loader: "style-loader"
@@ -25,11 +25,18 @@ module.exports = {
     ]
   },
   devServer: {
+    // https://webpack.js.org/configuration/dev-server/
     contentBase: path.join(__dirname, "../src"),
     publicPath: "/",
     progress: true,
+    inline: true,
+    host: "localhost",
     port: 8080,
-    hot: true
+    hot: true,
+    open: true,
+    proxy: {
+      "/": "/html/"
+    }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

@@ -67,3 +67,6 @@ typings/
 # End of https://www.gitignore.io/api/node
 dist/
 dist/*
+
+yarn.lock
+.DS_Store

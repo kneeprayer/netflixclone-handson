@@ -1,5 +1,133 @@
-import style from "./styles.css";
-// import "./fontawesome-all.min.css";
+import "../css/styles.css";
+
+const movieUrlList = [
+  {
+    img:
+      "https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title1",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title2",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title3",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img:
+      "https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title4",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title5",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img:
+      "https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title1",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title2",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title3",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img:
+      "https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title4",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title5",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img:
+      "https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title1",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title2",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title3",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img:
+      "https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title4",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  },
+  {
+    img: "https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg",
+    movie: "http://www.html5videoplayer.net/videos/toystory.mp4",
+    title: "Title5",
+    year: "2018",
+    intro:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore enim impedit non quaret."
+  }
+];
 
 const app = document.getElementById("app");
 var alarmcount = 1;
@@ -14,12 +142,12 @@ app.innerHTML =
       </div>
       <div class="js-header__menus">
         <ul class="js-header__menus-list">
-          <li class="js-header__menus-item">Home</li>
-          <li class="js-header__menus-item">TV Shows</li>
-          <li class="js-header__menus-item">Movies</li>
-          <li class="js-header__menus-item">Originals</li>
-          <li class="js-header__menus-item">Recently Added</li>
-          <li class="js-header__menus-item">My List</li>
+          <li class="js-header__menus-item"><a class="js-header__link" href="#">Home</a></li>
+          <li class="js-header__menus-item"><a class="js-header__link" href="#">TV Shows</a></li>
+          <li class="js-header__menus-item"><a class="js-header__link" href="#">Movies</a></li>
+          <li class="js-header__menus-item"><a class="js-header__link" href="#">Originals</a></li>
+          <li class="js-header__menus-item"><a class="js-header__link" href="#">Recently Added</a></li>
+          <li class="js-header__menus-item"><a class="js-header__link" href="#">My List</a></li>
         </ul>
       </div>
       <div class="js-header__others">
@@ -48,8 +176,8 @@ app.innerHTML =
       </div>
     </div>
   </header>
-  <div class="video">
-    <video id="homevideo" class="js-video" src="https://ia800602.us.archive.org/4/items/mov-bbb/mov_bbb.mp4" autoplay>
+  <div class="mainvideo">
+    <video id="homevideo" class="js-homevideo" src="https://ia800602.us.archive.org/4/items/mov-bbb/mov_bbb.mp4" autoplay>
     </video>
     <div class="js-videoController">
       <div class="js-playBtn">
@@ -65,27 +193,27 @@ app.innerHTML =
   <div class="recommand-movies">
     <p>Nomflix original movies</p>
     <div class="movie-info">
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
     </div>
     <p>Best movies</p>
     <div class="movie-info">
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
     </div>
     <p>Hot Kids Animation</p>
     <div class="movie-info">
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/kung-fu-panda.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/02/04/coraline.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/high-rise.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/06/16/finding-dory.jpg" /></div>
-      <div class="movie-info__box"><img src="https://cdn.pastemagazine.com/www/articles/2016/05/24/zootopia.jpg" /></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
+      <div class="movie-info__box"></div>
     </div>
   </div>
   <footer>
@@ -109,18 +237,16 @@ app.innerHTML =
       <li><a class="footer-link" href="#"><span id="">Legal Notices</span></a></li>
       <li><a class="footer-link" href="#"><span id="">Netflix Originals</span></a></li>
     </ul>
-  </footer>
-  <div class="viewVideoPlayer">
-    <video id="movieplayer" class="js-video" src="http://www.html5videoplayer.net/videos/toystory.mp4" controls>
-    </video>
-  </div>  
+  </footer> 
   `;
+
+var fullScreen = false;
+var viewVideoPlayer = false;
 
 const body = document.getElementsByTagName("BODY")[0],
   header = document.querySelector(".js-header"),
   video = document.getElementById("homevideo"),
-  movieplayer = document.getElementById("movieplayer"),
-  videowindow = document.querySelector(".video"),
+  videowindow = document.querySelector(".mainvideo"),
   volumeBtn = document.querySelector(".js-volumeBtn"),
   playBtn = document.querySelector(".js-playBtn"),
   search = document.querySelector(".js-search-form"),
@@ -130,10 +256,43 @@ const body = document.getElementsByTagName("BODY")[0],
   alarmnumber = document.querySelector(".js-header__others-alarm-number"),
   videoplayer = document.querySelector(".viewVideoPlayer"),
   boxes = document.querySelectorAll(".movie-info__box"),
-  boxArray = Array.from(boxes);
+  boxList = Array.from(boxes);
 
-var fullScreen = false;
-var viewVideoPlayer = false;
+const loadMoviesData = () => {
+  boxList.forEach((box, index) => {
+    box.style.backgroundImage = "url(" + movieUrlList[index].img + ")";
+    //   box.innerHTML =
+    //     `
+    //   <div class="movie-info__overlay">
+    //     <div class="movie-info__overlay__play-button">
+    //       <div class="play-button__container">
+    //         <i class="fa fa-play"></i>
+    //       </div>
+    //     </div>
+    //     <div class="movie-info__detail">
+    //       <p class="movie-info__title">
+    //     ` +
+    //     movieUrlList[index].title +
+    //     `
+    //       </p>
+    //       <p class="movie-info__year">
+    //     ` +
+    //     movieUrlList[index].year +
+    //     `
+    //       </p>
+    //       <p class="movie-info__intro">
+    //     ` +
+    //     movieUrlList[index].intro +
+    //     `
+    //       </p>
+    //     </div>
+    //     <div class="movie-info__arrow">
+    //       <i class="fas fa-angle-down"></i>
+    //     </div>
+    //   </div>
+    // `;
+  });
+};
 
 const loadSettings = () => {
   const loadMute = localStorage.getItem("muted");
@@ -146,16 +305,11 @@ const loadSettings = () => {
     video.muted = false;
     volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
   }
-  video.play();
   video.onplay = () => {
     playBtn.innerHTML = `<i class="fa fa-pause"></i>`;
   };
   search.style.display = "none";
   opensearch.style.display = "inherit";
-};
-
-video.onended = () => {
-  playBtn.innerHTML = `<i class="fa fa-play"></i>`;
 };
 
 const handleScroll = event => {
@@ -226,30 +380,6 @@ const handleSubmit = event => {
   console.log("search!");
 };
 
-const handleBoxMouseOver = event => {
-  const box = event.target;
-  const previousOne = box.previousElementSibling;
-  const nextOne = box.nextElementSibling;
-  if (previousOne) {
-    previousOne.classList.add("previous");
-  }
-  if (nextOne) {
-    nextOne.classList.add("next");
-  }
-};
-
-const handleBoxMouseLeave = event => {
-  const box = event.target;
-  const previousOne = box.previousElementSibling;
-  const nextOne = box.nextElementSibling;
-  if (previousOne) {
-    previousOne.classList.remove("previous");
-  }
-  if (nextOne) {
-    nextOne.classList.remove("next");
-  }
-};
-
 const handleAlarmCount = event => {
   if (alarmcount >= 9) {
     alarmcount = 0;
@@ -269,17 +399,13 @@ const handleInvisiblePlayBtn = event => {
 
 const handleVideoPlayer = event => {
   if (fullScreen == false) {
-    // videowindow.classList.add("fullscreen");
-    // body.style.overflowY = "hidden";
     video.webkitRequestFullscreen();
     video.muted = false;
     volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
     localStorage.setItem("muted", false);
     fullScreen = true;
   } else {
-    // videowindow.classList.remove("fullscreen");
-    // body.style.overflowY = "inherit";
-    video.webkitExitFullscreen();
+    video.exitFullscreen();
     video.muted = true;
     volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
     localStorage.setItem("muted", true);
@@ -289,9 +415,7 @@ const handleVideoPlayer = event => {
 
 const handleScollVideoPlayer = event => {
   if (fullScreen == true) {
-    // videowindow.classList.remove("fullscreen");
-    // body.style.overflowY = "inherit";
-    video.webkitExitFullscreen();
+    video.exitFullscreen();
     video.muted = true;
     volumeBtn.innerHTML = `<i class="fas fa-volume-off"></i>`;
     localStorage.setItem("muted", true);
@@ -310,13 +434,61 @@ const handleoViewVideoPlayer = event => {
 
 const handleoCloseVideoPlayer = event => {
   movieplayer.pause();
-  movieplayer.webkitExitFullscreen();
+  movieplayer.exitFullscreen();
   viewVideoPlayer = false;
 };
 
+const findAllNext = element => {
+  const foundList = [];
+  const findNext = element => {
+    if (element !== null) {
+      foundList.push(element);
+      const previousElement = element.nextElementSibling;
+      if (previousElement !== null) {
+        findNext(previousElement);
+      }
+    }
+  };
+  findNext(element.nextElementSibling);
+  return foundList;
+};
+
+const findAllPrevious = element => {
+  const foundList = [];
+  const findPrevious = element => {
+    if (element !== null) {
+      foundList.push(element);
+      const previousElement = element.previousElementSibling;
+      if (previousElement !== null) {
+        findPrevious(previousElement);
+      }
+    }
+  };
+  findPrevious(element.previousElementSibling);
+  return foundList;
+};
+
+const handleMouseEnter = event => {
+  const target = event.target;
+  const nextElements = findAllNext(target);
+  const previousElements = findAllPrevious(target);
+  nextElements.forEach(element => {
+    element.classList.add("movie-info__next");
+  });
+  previousElements.forEach(element => {
+    element.classList.add("movie-info__previous");
+  });
+};
+
+const handleMouseLeave = event => {
+  const { target } = event;
+  boxList.forEach(box => {
+    box.classList.remove("movie-info__next", "movie-info__previous");
+  });
+};
+
+loadMoviesData();
 loadSettings();
-videoplayer.addEventListener("click", handleoCloseVideoPlayer);
-videoplayer.addEventListener("wheel", handleoCloseVideoPlayer);
 videowindow.addEventListener("mouseover", handleVisiblePlayBtn);
 videowindow.addEventListener("mouseleave", handleInvisiblePlayBtn);
 video.addEventListener("click", handleVideoPlayer);
@@ -326,10 +498,9 @@ playBtn.addEventListener("click", handlePlay);
 opensearch.addEventListener("mouseover", handleOpenSearch);
 closesearch.addEventListener("click", handleCloseSearch);
 alarm.addEventListener("click", handleAlarmCount);
-header.addEventListener("mouseleave", handleCloseSearch);
-body.addEventListener("scroll", handleScroll);
-boxArray.forEach(box => {
-  box.addEventListener("mouseover", handleBoxMouseOver);
-  box.addEventListener("mouseleave", handleBoxMouseLeave);
+window.addEventListener("scroll", handleScroll);
+boxList.forEach(box => {
+  box.addEventListener("mouseover", handleMouseEnter);
+  box.addEventListener("mouseleave", handleMouseLeave);
   box.addEventListener("click", handleoViewVideoPlayer);
 });
